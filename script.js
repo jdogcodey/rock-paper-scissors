@@ -1,29 +1,25 @@
 function getUserChoice() {
-    const choice = prompt("Rock, Paper or Scissors?");
+    let choice = prompt("Rock, Paper or Scissors?");
     return choice.toLowerCase();
 }   
 
 console.log(getUserChoice())
 
 function getComputerChoice() {
-    const options = ["rock", "paper", "scissors"];
-    const random = Math.floor((Math.random() * options.length));
-    const randomChoice=options[random];
+    let options = ["rock", "paper", "scissors"];
+    let random = Math.floor((Math.random() * options.length));
+    let randomChoice=options[random];
     return randomChoice;
 }
 
 console.log(getComputerChoice()) 
 
-function playRound() {
-    if (getUserChoice() === 'rock' && getComputerChoice() === 'scissors') return "Rock beats Scissors so you WIN!"
-    else if (getUserChoice() ==='scissors' && getComputerChoice() === 'paper') return "Scissors beats Paper so you WIN!"
-    else if (getUserChoice() === 'paper' && getComputerChoice() === 'rock') return"Paper beats Rock so you WIN!"
-    else if (getUserChoice() === 'rock' && getComputerChoice() ==='paper') return "Paper beats Rock... You're a loser!"
-    else if (getUserChoice() === 'scissors' && getComputerChoice() === 'rock') return "Rock beats Scissors... You're a loser!"
-    else if (getUserChoice() === 'paper' && getComputerChoice() === 'scissors') return "Scissors beats Paper... You're a loser!"
-    else if (getUserChoice() === 'rock' && getComputerChoice() === 'rock') return "It's a Draw! Play Again"
-    else if (getUserChoice() === 'scissors' && getComputerChoice() === 'scissors') return "It's a Draw! Play Again"
-    else if (getUserChoice() === 'paper' && getComputerChoice() === 'paper') return "It's a Draw! Play Again"
+function playRound(roundOutcome) {
+    if (getUserChoice() === getComputerChoice()) roundOutcome = 0;
+    else if ((getUserChoice() === 'rock' && getComputerChoice() === 'scissors') || (getUserChoice() === 'scissors' && getComputerChoice() === 'paper') || (getUserChoice() === 'paper' && getComputerChoice() === 'rock')) roundOutcome = 1;
+    else if ((getUserChoice() === 'paper' && getComputerChoice() === 'scissors') || (getUserChoice() === 'rock' && getComputerChoice() === 'paper') || (getUserChoice() === 'scissors' && getComputerChoice() === 'rock')) roundOutcome = -1;
+    else roundOutcome = -2
+    return roundOutcome
 }
 
 console.log(playRound())
