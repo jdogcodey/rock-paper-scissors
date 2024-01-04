@@ -1,54 +1,40 @@
+let computerScore = 0
+let playerScore = 0
+let gameOver = false 
+
 let playerSelection = prompt("Rock, Paper, or Scissors?");
 let playerSelectionLC = playerSelection.toLowerCase();
-
-let playerChoice;
-
-if (playerSelectionLC === 'rock') {
-    playerChoice = 10
-}
-else if (playerSelectionLC === 'paper') {
-    playerChoice = 5
-} 
-else if (playerSelectionLC === 'scissors') {
-    playerChoice = 1
-}
-else playerChoice = 100;
-
-console.log(playerChoice)
 
 function getComputerChoice() {
     let options = ["rock", "paper", "scissors"];
     let random = Math.floor((Math.random() * options.length));
-    let randomChoice=options[random];
-    if (randomChoice === 'rock') {
-        return 5
-    }
-    else if (randomChoice === 'paper') {
-        return 3
-    } 
-    else if (randomChoice === 'scissors') {
-        return 1
-    };
+    let randomChoice = options[random];
+    return randomChoice;
 };
 
 let computerChoice = getComputerChoice();
 
-console.log('computerChoice' + computerChoice);
+console.log('The Computer Chose ' + computerChoice);
 
-let totalValue = computerChoice + playerChoice;
-
-console.log('totalValue' + totalValue)
+let totalValue = playerSelectionLC + computerChoice;
 
 function outcome() {
-    if (totalValue == 11 || totalValue == 10 || totalValue == 4) {
-        return 'WIN'
+    if (totalValue == 'rockscissors' || totalValue == 'paperrock' || totalValue == 'scissorspaper') {
+        playerScore++;
+        return 'You WIN because ' + playerSelectionLC + ' beats ' + computerChoice;
     }
-    else if (totalValue == 13 || totalValue == 6) {
-        return "LOSS"
+    else if (totalValue == 'rockpaper' || totalValue == 'scissorsrock' || totalValue == 'paperscissors') {
+        computerScore++;
+        return 'Unlucky... You lose because the Computer chose ' + computerChoice + ' which beats your ' + playerSelectionLC;
     }
-    else if (totalValue == 15 || totalValue == 8 || totalValue == 2)  {
-        return "TIE"
+    else if (totalValue == 'scissorsscissors' || totalValue == 'paperpaper' || totalValue == 'rockrock')  {
+        return "You think like a Computer - it's a TIE as you both chose " + computerChoice
     }
+    else return 'Something went wrong... Did you spell your choice correctly?'
 };
 
-console.log('outcome ' + outcome())
+console.log(outcome());
+
+console.log('ROUND 1:\nPlayer Score: ' + playerScore + '\nComputer Score: ' + computerScore)
+
+
