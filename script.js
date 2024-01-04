@@ -1,25 +1,54 @@
-function getUserChoice() {
-    let choice = prompt("Rock, Paper or Scissors?");
-    return choice.toLowerCase();
-}   
+let playerSelection = prompt("Rock, Paper, or Scissors?");
+let playerSelectionLC = playerSelection.toLowerCase();
 
-console.log(getUserChoice())
+let playerChoice;
+
+if (playerSelectionLC === 'rock') {
+    playerChoice = 3
+}
+else if (playerSelectionLC === 'paper') {
+    playerChoice = 2
+} 
+else if (playerSelectionLC === 'scissors') {
+    playerChoice = 1
+}
+else playerChoice = 100;
+
+console.log(playerChoice)
 
 function getComputerChoice() {
     let options = ["rock", "paper", "scissors"];
     let random = Math.floor((Math.random() * options.length));
     let randomChoice=options[random];
-    return randomChoice;
+    if (randomChoice === 'rock') {
+        return 5
+    }
+    else if (randomChoice === 'paper') {
+        return 3
+    } 
+    else if (randomChoice === 'scissors') {
+        return 1
+    };
+};
+
+let computerChoice = getComputerChoice();
+
+console.log('computerChoice' + computerChoice);
+
+let totalValue = computerChoice + playerChoice;
+
+console.log('totalValue' + totalValue)
+
+function outcome(totalValue) {
+    if (totalValue = 11 || 10 || 4) {
+        return 1
+    }
+    else if (totalValue = 13 || 6) {
+        return -1
+    }
+    else if (totalValue = 15 || 8 || 2)  {
+        return 0
+    }
 }
 
-console.log(getComputerChoice()) 
-
-function playRound(roundOutcome) {
-    if (getUserChoice() === getComputerChoice()) roundOutcome = 0;
-    else if ((getUserChoice() === 'rock' && getComputerChoice() === 'scissors') || (getUserChoice() === 'scissors' && getComputerChoice() === 'paper') || (getUserChoice() === 'paper' && getComputerChoice() === 'rock')) roundOutcome = 1;
-    else if ((getUserChoice() === 'paper' && getComputerChoice() === 'scissors') || (getUserChoice() === 'rock' && getComputerChoice() === 'paper') || (getUserChoice() === 'scissors' && getComputerChoice() === 'rock')) roundOutcome = -1;
-    else roundOutcome = -2
-    return roundOutcome
-}
-
-console.log(playRound())
+console.log('outcome ' + outcome())
