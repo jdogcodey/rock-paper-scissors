@@ -4,10 +4,10 @@ let playerSelectionLC = playerSelection.toLowerCase();
 let playerChoice;
 
 if (playerSelectionLC === 'rock') {
-    playerChoice = 3
+    playerChoice = 10
 }
 else if (playerSelectionLC === 'paper') {
-    playerChoice = 2
+    playerChoice = 5
 } 
 else if (playerSelectionLC === 'scissors') {
     playerChoice = 1
@@ -39,16 +39,16 @@ let totalValue = computerChoice + playerChoice;
 
 console.log('totalValue' + totalValue)
 
-function outcome(totalValue) {
-    if (totalValue = 11 || 10 || 4) {
-        return 1
+function outcome() {
+    if (totalValue == 11 || totalValue == 10 || totalValue == 4) {
+        return 'WIN'
     }
-    else if (totalValue = 13 || 6) {
-        return -1
+    else if (totalValue == 13 || totalValue == 6) {
+        return "LOSS"
     }
-    else if (totalValue = 15 || 8 || 2)  {
-        return 0
+    else if (totalValue == 15 || totalValue == 8 || totalValue == 2)  {
+        return "TIE"
     }
-}
+};
 
 console.log('outcome ' + outcome())
