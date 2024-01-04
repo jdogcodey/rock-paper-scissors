@@ -1,6 +1,5 @@
 let computerScore = 0
 let playerScore = 0
-let gameOver = false 
 
 let playerSelection = prompt("Rock, Paper, or Scissors?");
 let playerSelectionLC = playerSelection.toLowerCase();
@@ -149,3 +148,11 @@ function outcome5() {
 console.log(outcome5());
 
 console.log('ROUND 5:\nPlayer Score: ' + playerScore + '\nComputer Score: ' + computerScore)
+
+if (playerScore > computerScore) {
+    console.log('You WON in a Best of Five - You must be smarter than a computer as you scored ' + playerScore + ' and the Computer scored ' + computerScore);
+}
+else if (computerScore > playerScore) {
+    console.log('You LOST in a Best of Five - Unlucky. The Computer scored ' + computerScore + ' while you got a measly ' + playerScore);
+}
+else console.log("It's a draw! You both scored " + computerScore)
