@@ -1,9 +1,11 @@
-let computerScore = 0
-let playerScore = 0
-let playerSelectionLC = ''
+let computerScore = 0;
+let playerScore = 0;
+let runningHigh = Math.max(computerScore, playerScore)
+let playerSelectionLC = '';
+let i = 0;
+const scoreTracker = document.createElement('div');
 
 function playRound() {
-
     function getComputerChoice() {
         let options = ["rock", "paper", "scissors"];
         let random = Math.floor((Math.random() * options.length));
@@ -35,6 +37,16 @@ function playRound() {
     results.textContent = outcome();
     document.body.appendChild(results);
     console.log(outcome());
+    function score() {
+        if (playerScore > computerScore) {
+           return "You're Winning! SCORE: Player-${playerScore} : ${computerScore}-Computer";
+        }
+        else {
+            return "You're Losing SCORE: Player-${playerScore} : ${computerScore}-Computer";
+        };
+    }
+    scoreTracker.textContent = score();
+    document.body.appendChild(scoreTracker);
 };
 
 
@@ -60,5 +72,5 @@ document.body.appendChild(scissors);
 scissors.addEventListener('click', () => {
     playerSelectionLC = 'scissors';
     playRound();
-})
+});
 
