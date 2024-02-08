@@ -4,6 +4,7 @@ let runningHigh = Math.max(computerScore, playerScore)
 let playerSelectionLC = '';
 let i = 0;
 const scoreTracker = document.createElement('div');
+const results = document.createElement('div');
 
 function playRound() {
     function getComputerChoice() {
@@ -25,7 +26,7 @@ function playRound() {
             return 'You WIN because ' + playerSelectionLC + ' beats ' + computerChoice;
         }
         else if (totalValue == 'rockpaper' || totalValue == 'scissorsrock' || totalValue == 'paperscissors') {
-            computerScore++;
+            ++computerScore;
             return 'Unlucky... You lose because the Computer chose ' + computerChoice + ' which beats your ' + playerSelectionLC;
         }
         else if (totalValue == 'scissorsscissors' || totalValue == 'paperpaper' || totalValue == 'rockrock')  {
@@ -33,10 +34,8 @@ function playRound() {
         }
         else return 'Something went wrong... Did you spell your choice correctly?'
     };
-    const results = document.createElement('div');
     results.textContent = outcome();
     document.body.appendChild(results);
-    console.log(outcome());
     function score() {
         if (playerScore > computerScore) {
            return `You're Winning! SCORE: Player-${playerScore} : ${computerScore}-Computer`;
