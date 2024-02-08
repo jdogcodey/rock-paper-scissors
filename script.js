@@ -31,7 +31,9 @@ function playRound() {
         }
         else return 'Something went wrong... Did you spell your choice correctly?'
     };
-
+    const results = document.createElement('div');
+    results.textContent = outcome();
+    document.body.appendChild(results);
     console.log(outcome());
 };
 
@@ -59,3 +61,4 @@ scissors.addEventListener('click', () => {
     playerSelectionLC = 'scissors';
     playRound();
 })
+
