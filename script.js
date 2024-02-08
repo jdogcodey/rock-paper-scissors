@@ -35,31 +35,3 @@ function playRound() {
 
     console.log(outcome());
 };
-
-let roundOne = playRound();
-
-console.log('ROUND 1:\nPlayer Score: ' + playerScore + '\nComputer Score: ' + computerScore);
-
-let roundTwo= playRound();
-
-console.log('ROUND 2:\nPlayer Score: ' + playerScore + '\nComputer Score: ' + computerScore);
-
-let roundThree = playRound();
-
-console.log('ROUND 3:\nPlayer Score: ' + playerScore + '\nComputer Score: ' + computerScore);
-
-let roundFourth = playRound();
-
-console.log('ROUND 4:\nPlayer Score: ' + playerScore + '\nComputer Score: ' + computerScore);
-
-let roundFive = playRound();
-
-console.log('ROUND 5:\nPlayer Score: ' + playerScore + '\nComputer Score: ' + computerScore);
-
-if (playerScore > computerScore) {
-    console.log('You won a best of five! You got ' + playerScore + ' and the Computer got ' + computerScore);
-}
-else if (playerScore < computerScore) {
-    console.log('You lost the best of five! The computer got ' + computerScore + ' and you only got ' + playerScore);
-}
-else console.log("It's a TIE over the best of five!")
