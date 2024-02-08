@@ -39,10 +39,10 @@ function playRound() {
     console.log(outcome());
     function score() {
         if (playerScore > computerScore) {
-           return "You're Winning! SCORE: Player-${playerScore} : ${computerScore}-Computer";
+           return `You're Winning! SCORE: Player-${playerScore} : ${computerScore}-Computer`;
         }
         else {
-            return "You're Losing SCORE: Player-${playerScore} : ${computerScore}-Computer";
+            return `You're Losing SCORE: Player-${playerScore} : ${computerScore}-Computer`;
         };
     }
     scoreTracker.textContent = score();
