@@ -1,9 +1,8 @@
 let computerScore = 0
 let playerScore = 0
+let playerSelectionLC = ''
 
 function playRound() {
-    let playerSelection = prompt("Rock, Paper, or Scissors?");
-    let playerSelectionLC = playerSelection.toLowerCase();
 
     function getComputerChoice() {
         let options = ["rock", "paper", "scissors"];
@@ -40,11 +39,23 @@ function playRound() {
 const rock = document.createElement('button');
 rock.textContent = 'Rock';
 document.body.appendChild(rock);
+rock.addEventListener('click', () => {
+    playerSelectionLC = 'rock';
+    playRound();
+});
 
 const paper = document.createElement('button');
 paper.textContent = 'Paper';
 document.body.appendChild(paper);
+paper.addEventListener('click', () => {
+    playerSelectionLC = 'paper';
+    playRound();
+});
 
 const scissors = document.createElement('button');
 scissors.textContent = 'Scissors';
 document.body.appendChild(scissors);
+scissors.addEventListener('click', () => {
+    playerSelectionLC = 'scissors';
+    playRound();
+})
